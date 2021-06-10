@@ -6,9 +6,9 @@ function HeroPage() {
   
   return (
     <div style={{ background: "#ECECF6", height: "100vh" }}>
-       <NavBar />
-      <Home/> 
-      {/* <Login/> */}
+       {/* <NavBar /> */}
+      {/* <Home/>  */}
+      <Login/>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@material-ui/styles';
 import './App.css';
 import HeroPage from './HeroPage';
+import OverridesCss from './theme/Input';
 import theme from './theme';
 
 function App() {

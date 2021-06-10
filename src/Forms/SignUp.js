@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   inputPaper: { width: "400px", height: "auto", display: "flex" },
   
 });
-function Login() {
+function SignUp() {
   const classes = useStyles();
   return (
     <div>
@@ -91,4 +91,4 @@ function Login() {
     </div>
   );
 }
-export default Login;
+export default SignUp;
