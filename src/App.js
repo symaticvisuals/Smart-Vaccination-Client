@@ -1,13 +1,19 @@
 import { ThemeProvider } from '@material-ui/styles';
 import './App.css';
 import HeroPage from './HeroPage';
-import OverridesCss from './theme/Input';
 import theme from './theme';
+import {
+  BrowserRouter as Router,
+ 
+} from "react-router-dom"
+import Routes from './Routes'
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <HeroPage />
+      <Router>
+        <Routes/>
+      </Router>
     </ThemeProvider>
   );
 }
