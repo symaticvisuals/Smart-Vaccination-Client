@@ -4,31 +4,30 @@ import Input from '../theme/Input';
 import { FiUser } from 'react-icons/fi';
 import { FiKey } from 'react-icons/fi';
 import { FiMail } from 'react-icons/fi';
-import image2 from '../images/get-vaccinated.svg';
+import { useHistory } from "react-router-dom";
+
 const useStyles = makeStyles({
   root: {
-    minHeight: '100vh',
-    background: '#F0F5FF'
+    minHeight: "100vh",
+    background: "#F0F5FF",
   },
-  gridItem: { marginTop: '15px' },
-  box: { padding: '20px 10vw' },
-  inputPaper: { width: '400px', height: 'auto', display: 'flex' }
+  gridItem: { marginTop: "15px" },
+  box: {
+    padding: "20px 10vw",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  inputPaper: { width: "400px", height: "auto", display: "flex" },
 });
 function SignUp() {
+  let history = useHistory();
+  function handleClick() {
+    history.push("\login");
+  }
   const classes = useStyles();
   return (
-    <div>
-      <Grid container className={classes.root}>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
+    
           <Box className={classes.box}>
             <Grid container spacing={0}>
               <Grid
@@ -37,7 +36,7 @@ function SignUp() {
                 md={12}
                 style={{ display: 'flex', justifyContent: 'flex-start' }}
               >
-                <Typography variant="h1">Sign In for Vaccination </Typography>
+                <Typography variant="h1">Sign Up for Vaccination </Typography>
               </Grid>
               <Grid
                 item
@@ -49,7 +48,7 @@ function SignUp() {
                   variant="body1"
                   style={{ margin: '5px', marginBottom: '20px' }}
                 >
-                  Already have an account? <Link>Sign In</Link>
+                  Already have an account? <Link  onClick={handleClick}>Sign In</Link>
                 </Typography>
               </Grid>
 
@@ -71,33 +70,12 @@ function SignUp() {
                 />
               </Grid>
               <Grid item xs={12} md={12} className={classes.gridItem}>
-                <BrandButton children="Login" color="primary"></BrandButton>
+                <BrandButton children="Sign Up" color="primary"></BrandButton>
               </Grid>
               
             </Grid>
           </Box>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          style={{
-            background: '#2E2EA4',
-            borderRadius: '20px 0 0 20px',
-            padding: '40px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
-          <img
-            src={image2}
-            style={{ display: 'flex', width: '70%' }}
-            alt="login"
-          />
-        </Grid>
-      </Grid>
-    </div>
+
   );
 }
 export default SignUp;

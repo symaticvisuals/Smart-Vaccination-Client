@@ -1,17 +1,17 @@
 import { ThemeProvider } from '@material-ui/styles';
 import './App.css';
-import HeroPage from './HeroPage';
+import { createBrowserHistory } from "history";
 import theme from './theme';
 import {
   BrowserRouter as Router,
  
 } from "react-router-dom"
 import Routes from './Routes'
-
+const history = createBrowserHistory();
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router>
+      <Router history={history}>
         <Routes/>
       </Router>
     </ThemeProvider>

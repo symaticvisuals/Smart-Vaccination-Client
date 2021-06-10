@@ -1,6 +1,7 @@
 import { Button } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { createMuiTheme, ThemeProvider, withStyles } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 const styles = () => ({
   default: {
@@ -22,14 +23,21 @@ const theme = createMuiTheme({
     dark: "#EFAE0A",
   },
 });
-function BrandButton({ color, children, classes }) {
+
+function BrandButton({ color, children, classes, routePath }) {
+   let history = useHistory();
+  function handleClick() {
+    history.push(routePath);
+  
+}
   return (
     <ThemeProvider theme={theme}>
       <Button
         variant="contained"
         className={classes.default}
-        color={color}
+        color= "primary"
         fullWidth
+        onClick={handleClick}
       >
         {children}
       </Button>
@@ -38,5 +46,6 @@ function BrandButton({ color, children, classes }) {
 }
 BrandButton.prototypes = {
   color: PropTypes.string,
+  routePath: PropTypes.string,
 };
 export default withStyles(styles)(BrandButton);

@@ -1,8 +1,14 @@
-import { AppBar, makeStyles, Toolbar, Typography } from '@material-ui/core';
+import {
+  AppBar,
+  makeStyles,
+  Toolbar,
+  Typography,
+  Link,
+} from "@material-ui/core";
 import BrandButton from './BrandButton';
 import logo from './logo_2.svg';
 import Login from './Forms/Login';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 const useStyles = makeStyles({
   root: {
     width: '100%',
@@ -33,7 +39,7 @@ function NavBar() {
             <img src={logo} className={classes.logo} alt="brand" />
           </div>
           <div style={{ display: 'flex' }}>
-            <ul style={{ listStyleType: 'none', display: 'flex' }}>
+            <ul style={{ listStyleType: 'none', display: 'flex', alignItems: 'center' }}>
               <Typography variant="subtitle2" style={{ display: 'flex' }}>
                 <li style={{ padding: '5px 10px' }}>
                   <Link href="#" onClick={preventDefault}>
@@ -51,7 +57,7 @@ function NavBar() {
               <BrandButton
                 color="secondary"
                 children="Book Vaccination"
-                onClick={{ function() {} }}
+                routePath="/login"
               ></BrandButton>
             </div>
           </div>
