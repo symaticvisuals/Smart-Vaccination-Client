@@ -1,6 +1,3 @@
-# Getting Started with Create React App
-
-
 # Smart Vaccination System
 
 The year 2020 of pandemic was such a problem for the entire world and caused number of life loss. To prevent more live loss the proper method of vaccination should be adapted, therefore we bring Smart Vaccination System for you to get vaccinated without any risks.
