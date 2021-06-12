@@ -7,8 +7,6 @@ import {
 } from "@material-ui/core";
 import BrandButton from './BrandButton';
 import logo from './logo_2.svg';
-import Login from './Forms/Login';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 const useStyles = makeStyles({
   root: {
     width: '100%',

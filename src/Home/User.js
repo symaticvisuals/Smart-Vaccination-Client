@@ -1,8 +1,4 @@
-import { Box, Grid, Link, makeStyles, Typography } from "@material-ui/core";
-import BrandButton from "../BrandButton";
-import Input from "../theme/Input";
-import { FiUser } from "react-icons/fi";
-import { FiKey } from "react-icons/fi";
+import { Box, Grid, makeStyles} from "@material-ui/core";
 import image2 from "../images/get-vaccinated.svg";
 const useStyles = makeStyles({
   root: {

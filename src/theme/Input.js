@@ -8,7 +8,6 @@ import {
 } from "@material-ui/core";
 import PropTypes from "prop-types";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import clsx from 'clsx';
 const styles = () => ({
   default: {
     borderRadius: "10px",
@@ -29,25 +28,28 @@ const theme = createMuiTheme({
     dark: "#EFAE0A",
   },
 });
-function Input({ placeholder, type,icon, classes }) {
+function Input({  classes,...props }) {
   return (
     <ThemeProvider theme={theme}>
       <Box display="flex" style={{ flexDirection: "column", justifyContent: "flex-start"}}>
         <Box >
-          <Typography variant="subtitle2" style={{margin: " 0 5px"}}>{placeholder}</Typography>
+          <Typography variant="subtitle2" style={{margin: " 0 5px"}}>{props.placeholder}</Typography>
         </Box> 
         <Box >
           <TextField
-            placeholder={placeholder}
-            type={type}
+            placeholder={props.placeholder}
+            type={props.type}
             fullWidth
             autoComplete="no"
+            value={props.value}
+            
             InputProps={{
               classes: { root: classes.default },
               startAdornment: (
-                <InputAdornment position="start">{icon}</InputAdornment>
+                <InputAdornment position="start">{props.icon}</InputAdornment>
               ),
             }}
+            disabled={ props.isDisabled}
             variant="outlined"
           ></TextField>
         </Box>
@@ -59,5 +61,6 @@ function Input({ placeholder, type,icon, classes }) {
 Input.propTypes = {
   placeholder: PropTypes.string,
   type: PropTypes.string,
+  isDisabled : PropTypes.string,
 };
 export default withStyles(styles)(Input);

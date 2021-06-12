@@ -18,8 +18,13 @@ import ListItemText from "@material-ui/core/ListItemText";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import AllInboxIcon from "@material-ui/icons/AllInbox";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
-import ForumIcon from "@material-ui/icons/Forum";
-import { Button } from "@material-ui/core";
+import StarOutlinedIcon from "@material-ui/icons/StarOutlined";
+import { Button} from "@material-ui/core";
+
+
+import { BrowserRouter as Switch, Route, useRouteMatch } from "react-router-dom";
+import { useHistory } from "react-router";
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -50,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    whiteSpace: "nowrap",
+    whiteSpace: "wrap",
   },
   drawerOpen: {
     width: drawerWidth,
@@ -67,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
     overflowX: "hidden",
     width: theme.spacing(7) + 1,
     [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9) + 1,
+      width: theme.spacing(7) + 1,
     },
   },
   toolbar: {
@@ -82,32 +87,35 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+
 }));
 
-export default function MainLayout() {
+export default function MainLayout({page}) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
+  const history = useHistory();
   const handleDrawerOpen = () => {
     setOpen(true);
   };
   let items = [
     {
       name: "Profile",
-      icon: <AccountBoxIcon />,
+      icon: <AccountBoxIcon fontSize="medium" style={{ fill: "#121212" }} />,
     },
     {
       name: "Appointments",
-      icon: <AllInboxIcon />,
+      icon: <AllInboxIcon fontSize="medium" style={{ fill: "#121212" }} />,
     },
     {
       name: "Vaccinated",
-      icon: <CheckCircleOutlineIcon />,
+      icon: (
+        <CheckCircleOutlineIcon fontSize="medium" style={{ fill: "#121212" }} />
+      ),
     },
     {
-      name: "Chats",
-      icon: <ForumIcon />,
+      name: "Achievements",
+      icon: <StarOutlinedIcon fontSize="medium" style={{ fill: "#121212" }} />,
     },
   ];
   const handleDrawerClose = () => {
@@ -118,8 +126,8 @@ export default function MainLayout() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
-              position="fixed"
-              style={{flex: 1}}
+        position="fixed"
+        style={{ flex: 1 }}
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
@@ -136,7 +144,7 @@ export default function MainLayout() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap style={{flexGrow:1}}>
+          <Typography variant="h6" noWrap style={{ flexGrow: 1 }}>
             Dashboard
           </Typography>
           <Button color="inherit">Logout</Button>
@@ -169,9 +177,21 @@ export default function MainLayout() {
           {items.map((item, index) => {
             const { name, icon } = item;
             return (
-              <ListItem button key={name}>
+              <ListItem
+                button
+                key={name}
+                button
+                onClick={() => {
+                  history.push(`/${name}`);
+
+                }}
+              >
                 <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText>{name}</ListItemText>
+                <ListItemText>
+                  <Typography variant="bod1" style={{ color: "#2E2EA4" }}>
+                    {name}
+                  </Typography>
+                </ListItemText>
               </ListItem>
             );
           })}
@@ -179,6 +199,7 @@ export default function MainLayout() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
+        {page}
       </main>
     </div>
   );

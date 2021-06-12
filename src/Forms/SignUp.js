@@ -1,9 +1,9 @@
-import { Box, Grid, Link, makeStyles, Typography } from '@material-ui/core';
-import BrandButton from '../BrandButton';
-import Input from '../theme/Input';
-import { FiUser } from 'react-icons/fi';
-import { FiKey } from 'react-icons/fi';
-import { FiMail } from 'react-icons/fi';
+import { Box, Grid, Link, makeStyles, Typography } from "@material-ui/core";
+import BrandButton from "../BrandButton";
+import Input from "../theme/Input";
+import { FiUser } from "react-icons/fi";
+import { FiKey } from "react-icons/fi";
+import { FiMail } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -23,59 +23,48 @@ const useStyles = makeStyles({
 function SignUp() {
   let history = useHistory();
   function handleClick() {
-    history.push("\login");
+    history.push("login");
   }
   const classes = useStyles();
   return (
-    
-          <Box className={classes.box}>
-            <Grid container spacing={0}>
-              <Grid
-                item
-                xs={12}
-                md={12}
-                style={{ display: 'flex', justifyContent: 'flex-start' }}
-              >
-                <Typography variant="h1">Sign Up for Vaccination </Typography>
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                md={12}
-                style={{ display: 'flex', justifyContent: 'flex-start' }}
-              >
-                <Typography
-                  variant="body1"
-                  style={{ margin: '5px', marginBottom: '20px' }}
-                >
-                  Already have an account? <Link  onClick={handleClick}>Sign In</Link>
-                </Typography>
-              </Grid>
+    <Box className={classes.box}>
+      <Grid container spacing={0}>
+        <Grid
+          item
+          xs={12}
+          md={12}
+          style={{ display: "flex", justifyContent: "flex-start" }}
+        >
+          <Typography variant="h1">Sign Up for Vaccination </Typography>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          md={12}
+          style={{ display: "flex", justifyContent: "flex-start" }}
+        >
+          <Typography
+            variant="body1"
+            style={{ margin: "5px", marginBottom: "20px" }}
+          >
+            Already have an account? <Link onClick={handleClick}>Sign In</Link>
+          </Typography>
+        </Grid>
 
-              <Grid item xs={12} md={12} className={classes.gridItem}>
-                <Input placeholder="Username" type="text" icon={<FiUser />} />
-              </Grid>
-              <Grid item xs={12} md={12} className={classes.gridItem}>
-                <Input
-                  placeholder="Password"
-                  type="password"
-                  icon={<FiKey />}
-                />
-              </Grid>
-              <Grid item xs={12} md={12} className={classes.gridItem}>
-                <Input
-                  placeholder="Email"
-                  type="email"
-                  icon={<FiMail />}
-                />
-              </Grid>
-              <Grid item xs={12} md={12} className={classes.gridItem}>
-                <BrandButton children="Sign Up" color="primary"></BrandButton>
-              </Grid>
-              
-            </Grid>
-          </Box>
-
+        <Grid item xs={12} md={12} className={classes.gridItem}>
+          <Input placeholder="Username" type="text" icon={<FiUser />} />
+        </Grid>
+        <Grid item xs={12} md={12} className={classes.gridItem}>
+          <Input placeholder="Password" type="password" icon={<FiKey />} />
+        </Grid>
+        <Grid item xs={12} md={12} className={classes.gridItem}>
+          <Input placeholder="Email" type="email" icon={<FiMail />} />
+        </Grid>
+        <Grid item xs={12} md={12} className={classes.gridItem}>
+          <BrandButton children="Sign Up" color="primary"></BrandButton>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
 export default SignUp;

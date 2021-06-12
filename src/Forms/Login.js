@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 function Login() {
   let history = useHistory();
   function handleClick() {
-    history.push("\signup");
+    history.push("signup");
   }
   const classes = useStyles();
   return (
