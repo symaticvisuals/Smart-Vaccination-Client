@@ -34,7 +34,7 @@ function Home() {
             style={{ display: "flex", justifyContent: "center" }}
           >
             <img src={image} className={classes.img} alt="vaccine" />
-          </Grid>
+          </Grid> 
           <Grid
             item
             xs={12}

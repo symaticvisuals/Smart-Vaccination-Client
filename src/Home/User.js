@@ -24,7 +24,7 @@ function User({ comp, ...props }) {
             alignContent: "center",
           }}
         >
-          <Box style={{display: "flex"}}>{comp}</Box>
+          <Box style={{ display: "flex" }}>{comp}</Box>
         </Grid>
         <Grid
           item
@@ -41,7 +41,7 @@ function User({ comp, ...props }) {
         >
           <img
             src={image2}
-            style={{ display: "flex", width: "70%" }}
+            style={{ display: "flex", width: "70%",  }}
             alt="login"
           ></img>
         </Grid>

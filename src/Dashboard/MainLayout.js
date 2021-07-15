@@ -19,10 +19,8 @@ import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import AllInboxIcon from "@material-ui/icons/AllInbox";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import StarOutlinedIcon from "@material-ui/icons/StarOutlined";
-import { Button} from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
-
-import { BrowserRouter as Switch, Route, useRouteMatch } from "react-router-dom";
 import { useHistory } from "react-router";
 
 const drawerWidth = 240;
@@ -87,10 +85,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
-
 }));
 
-export default function MainLayout({page}) {
+export default function MainLayout({ page }) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -115,6 +112,10 @@ export default function MainLayout({page}) {
     },
     {
       name: "Achievements",
+      icon: <StarOutlinedIcon fontSize="medium" style={{ fill: "#121212" }} />,
+    },
+    {
+      name: "Slots",
       icon: <StarOutlinedIcon fontSize="medium" style={{ fill: "#121212" }} />,
     },
   ];
@@ -180,10 +181,8 @@ export default function MainLayout({page}) {
               <ListItem
                 button
                 key={name}
-                button
                 onClick={() => {
                   history.push(`/${name}`);
-
                 }}
               >
                 <ListItemIcon>{icon}</ListItemIcon>
