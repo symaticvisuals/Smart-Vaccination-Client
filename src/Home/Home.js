@@ -33,6 +33,7 @@ function Home() {
             md={6}
             style={{ display: "flex", justifyContent: "center" }}
           >
+          <Typography variant="h1">New Change Sample</Typography>
             <img src={image} className={classes.img} alt="vaccine" />
           </Grid> 
           <Grid
